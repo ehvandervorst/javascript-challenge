@@ -43,6 +43,8 @@ var selectedCity = d3.select("#city").property("value").toLowerCase();
 
 var selectedShape = d3.select("#shape").property("value").toLowerCase();
 
+var selectedDuration = d3.select("#durationMinutes").property("value").toLowerCase();
+
 // initialize tableData as filteredData
 filteredData = tableData;
 
@@ -61,7 +63,9 @@ if (selectedCity) {
 if (selectedShape) {
     filteredData = filteredData.filter(record => record.shape === selectedShape);
 }
-
+if (selectedDuration) {
+    filteredData = filteredData.filter(record => record.durationMinutes === selectedDuration);
+}
 // Display the filtered dataset
 
 filteredData.forEach((report) => {
